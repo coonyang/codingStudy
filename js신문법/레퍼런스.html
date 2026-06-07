@@ -25,15 +25,44 @@
     // 파라미터는 변수생성&할당 과 같음
     var obj3 = { name: '김' }
     function 변경(obj) {
-        obj.name = "Park"
+        obj.name = "Park" // 직접적인 화살표 변경 obj.name 으로 해당 값을 꺼내옴
     }
     변경(obj3); // {name: 'Park'}
 
     var obj4 = { name: '김' }
     function 변경(obj) {
-        obj = { name: 'Park' }
+        obj = { name: 'Park' } // 기존의 내용이 아닌 새로운 객체 주입으로 다른 값을 할당
         console.log(obj) // {name: 'Park'}
     }
     변경(obj4);
     console.log(obj4)  // {name: '김'}
+
+    // obj와 arr도 같음
+    var arr = [1, 2, 3];
+
+    function 변경(arr) {
+        arr.push(4); // 화살표를 타고 들어가서 배열 맨 뒤에 4를 추가함
+    }
+
+    변경(arr3);
+    console.log(arr3); // [1, 2, 3, 4]
+
+    var arr2 = [1, 2, 3];
+
+    function 변경(arr) {
+        arr = [4, 5, 6]; // 기존 내용이 아닌 완전히 새로운 배열 주입 (새 화살표 할당)
+        console.log(arr); // [4, 5, 6]
+    }
+
+    변경(arr4);
+    console.log(arr4); // [1, 2, 3] 원본은 그대로 유지됨!
+
+    // push 말고 배열을 추가하려면?
+    var arr3 = [1, 2, 3];
+
+    function 배열추가(arr) {
+        return [...arr, 4, 5, 6]
+    }
+    arr4 = 배열추가(arr3);
+    console.log(arr4); // [1, 2, 3, 4, 5, 6]
 </script>
