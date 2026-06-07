@@ -1,5 +1,21 @@
 <script>
 
+    class 부모 {
+
+    }
+    부모.prototype.name = 'Park'
+
+    var 오브젝트 = new 부모(); // 내부적으로 오브젝트에 부모의 프로토타입이 연결됨
+
+    console.log(오브젝트.name) // Park
+
+    var 오브젝트 = { name: 'kim' } // 변수를 재선언 하면 이전의 오브젝트는 사라짐
+    Object.getOwnPropertyDescriptor(오브젝트, 'name') // 오브젝트의 숨겨진 내용 꺼내기 (오브젝트 안에 있는 name의 상세 정보를 줌)
+    // value: "kim", 실제 데이터 값
+    // writable: true, 값을 나중에 변경 가능한지 여부
+    // enumerable: true, 반복문이나 Object.keys()등을 쓸 때 이 속성이 노출되는지 여부
+    // configurable: true 속성을 삭제하거나 설정을 변경할 수 있는지 여부
+
     function 기계(이름) {
         this.name = 이름;
         this.age = 15;
