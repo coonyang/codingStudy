@@ -1,0 +1,43 @@
+<script>
+    // 디바운스 : 연속 실행되는 이벤트를 마지막 1번만 실행
+    function debounce(fn, delay) {
+        let timer;
+
+        return function () {
+            clearTimeout(timer);
+
+            timer = setTimeout(() => {
+                fn();
+            }, delay);
+        };
+    }
+    const search = debounce(() => {
+        console.log('검색');
+    }, 500);
+
+    input.addEventListener('input', search);
+    // 사용자가 input에 바나나 를 검색할때 각 모음 자음을 입력할땐 반응이 없다가 500ms 멈춰있다면 그때 검색 실행
+
+    // 쓰로틀 : 일정시간마다 1번만 실행
+    function throttle(fn, delay) {
+        let waiting = false;
+
+        return function () {
+            if (waiting) return;
+
+            fn();
+
+            waiting = true;
+
+            setTimeout(() => {
+                waiting = false;
+            }, delay);
+        };
+    }
+    window.addEventListener(
+        'scroll',
+        throttle(() => {
+            console.log('스크롤');
+        }, 1000)
+    ); // 스크롤이 많이 발생해도 1초당 1번만 실행
+</script>
