@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="parent">
+        <button class="child">클릭</button>
+    </div>
+    <div class="list">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+    <script>
+        // 이벤트 버블링 : 이벤트가 발생하면 자식 > 부모 > 조상 요소 순으로 이벤트가 전파되는 현상
+        document.querySelector('.parent')
+            .addEventListener('click', () => {
+                console.log('부모');
+            });
+
+        document.querySelector('.child')
+            .addEventListener('click', () => {
+                e.stopPropagation(); // 이벤트 버블링을 막아주는 함수
+                console.log('자식');
+            });
+        // 버튼 클릭시 '자식' 만 출력됨
+
+        // 이벤트 위임 : 이벤트 버블링을 이용해 부모에 이벤트 하나만 걸고 자식한테 퍼저나가게 하는것
+        document.querySelector('.list')
+            .addEventListener('click', (e) => {
+
+                if (e.target.tagName === 'BUTTON') {
+                    console.log('버튼 클릭');
+                }
+
+            });
+    </script>
+</body>
+
+</html>
