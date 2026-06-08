@@ -1,0 +1,41 @@
+<script>
+    //얕은 복사
+    // 같은 주소를 공유하는 obj
+    var obj1 = {
+        name: 'Kim'
+    };
+
+    var obj2 = obj1;
+
+    obj2.name = 'Park';
+
+    console.log(obj1.name); // 'Park'
+
+    var obj1 = {
+        name: 'Kim',
+        info: {
+            age: 20
+        }
+    };
+
+    var obj2 = { ...obj1 }; // 스프래드로 복사
+
+    obj2.info.age = 30;
+
+    console.log(obj1.info.age); // 30 info 객체는 같은 주소 참조
+
+    // 깊은 복사
+    var obj1 = {
+        name: 'Kim',
+        info: {
+            age: 20
+        }
+    };
+
+    var obj2 = structuredClone(obj1)
+
+    obj2.info.age = 30;
+
+    console.log(obj1.info.age); // 20 원본 유지
+    // const obj2 = JSON.parse(JSON.stringify(obj1)); JSON 방식
+</script>
