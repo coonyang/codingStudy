@@ -4,6 +4,10 @@
     }
 
     // [1, 2, 3].forEach() // Array전용은 forEach()
+    var arr = [1, 2, 3]
+    arr.forEach((item, index, array) => { console.log(item, index, array) })
+    // item = [1,2,3] index = 0,1,2 array = [1,2,3] [1,2,3] [1,2,3]
+    // forEach는 결과를 반환하지 않으므로 return 안씀
 
     // for ~ in 반복문
     for (var key in 오브젝트) { // obj 전용 // obj에 있는 값을 하나씩 꺼내 사용
