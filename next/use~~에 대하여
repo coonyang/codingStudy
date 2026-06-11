@@ -1,0 +1,18 @@
+useParams() = 현재 URL의 동적 파라미터를 가져옴
+
+const params = useParams();
+
+console.log(params.id); // /post/123 주소의 123을 출력해줌
+
+useRouter() = 페이지 이동, 뒤로가기 등에 사용
+
+const router = useRouter();
+
+router.push("/list");
+router.back();
+
+useSearchParams() = URL 쿼리스트링 읽기
+
+const searchParams = useSearchParams();
+
+const page = searchParams.get("page"); // ?page=2 에서 2를 가져옴
