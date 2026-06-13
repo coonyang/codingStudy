@@ -1,0 +1,25 @@
+<script>
+    var obj = { a: 1, b: 2, c: 3 }
+
+    obj.a // 1
+    obj["a"] // 1
+
+    for (let key in obj) {
+        key // a
+        obj[key] // 각각 1, 2, 3
+    }
+
+    var arr = [1, 2, 3]
+
+    arr[0] // 1
+    arr[1] // 2
+
+    var obj = {
+        arr: [1, 2, 3],
+        a: 1,
+        b: 2
+    }
+
+    obj.arr // [1,2,3]
+    obj.arr[0] // 1
+</script>
