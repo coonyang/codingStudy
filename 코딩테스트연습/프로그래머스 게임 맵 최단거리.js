@@ -11,6 +11,9 @@ function solution(maps) {
   while (queue.length) {
     let [x, y] = queue.shift();
 
+    let dx = [-1, 1, 0, 0];
+    let dy = [0, 0, -1, 1];
+
     for (let i = 0; i < 4; i++) {
       let nx = x + dx[i];
       let ny = y + dy[i];
