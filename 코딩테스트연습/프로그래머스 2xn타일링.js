@@ -12,5 +12,7 @@ function solution(n) {
     f[i] = (f[i - 1] + f[i - 2]) % 1000000007;
   }
 
+  answer = f[n];
+
   return answer;
 }
